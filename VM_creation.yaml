@@ -18,17 +18,17 @@
     vm_names_list: "{{ vm_name_prefix.split(',') }}"   # <<< REPLACEMENT
 
     # Static VM details
-    vm_image: "4e04bf46-b48f-4bd2-a15a-efdd3a666d43"
+    vm_image: "abd70a3d-80ba-45d9-b450-f923e948c1d4"
     vm_keypair: "k8s"
 
     # OpenStack authentication
     os_auth_url: "https://10.1.71.88:5000/v3"
     os_project_name: "admin"
-    os_project_id: "e9f88faebaa44e3893fd26f9d41f9927"
-    os_project_domain_id: "9021632abac74b018ee13e95c5e81bea"
+    os_project_id: "a73566c4c7a84af2a012619d2fb59f66"
+    os_project_domain_id: "9f89a689ff4e4269a5508cd249151e2f"
     os_username: "admin"
     os_user_domain_name: "admin_domain"
-    os_password: "Yaoki0kohghoQu9y"
+    os_password: "waegieriTothias7"
     os_region_name: "RegionOne"
     os_interface: "public"
     os_identity_api_version: "3"
@@ -144,6 +144,16 @@
         dest: "/tmp/cloud-init-{{ item.0 }}.yml"     # <<< REPLACED
         content: |
           #cloud-config
+          disable_root: false
+          ssh_pwauth: true
+          users:
+            - default
+            - name: root
+              lock_passwd: false
+          chpasswd:
+            list: |
+              root:comtegra
+            expire: false
           package_update: true
           packages:
             - curl
@@ -157,7 +167,7 @@
           write_files:
             - path: /etc/hosts
               content: |
-                10.1.77.17 k8smanager.comtegra.pl
+                10.1.77.33 k8s.comtegra.pl
               owner: root:root
               permissions: '0644'
 
