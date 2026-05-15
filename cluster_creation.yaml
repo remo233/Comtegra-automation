@@ -4,7 +4,7 @@
   gather_facts: false
   vars:
     rancher_url: "https://k8s.comtegra.pl"
-    api_token: "token-p8htt:zmjjkpcfzb5gdrmq5djfsm4wrzszk9kb8fbqjpng9pvkmqm4fz762w"
+    api_token: "token-x9zf2:h4q4jn4vzw2gs8qfvdxz8ck7qvvnnc7z2sbbffgdpzmwrdnk9j7nl5"
 
   tasks:
     - name: Create OpenStack cluster in Rancher
